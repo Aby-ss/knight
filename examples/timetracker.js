@@ -39,7 +39,26 @@ async function askName() {
   spinner.success({ text: `Let's get started on ${task}!` });
 }
 
+let category;
+
+async function askCategory() {
+    const answers = await inquirer.prompt({
+      name: 'category_name',
+      type: 'input',
+      message: 'What is your task category?',
+      default() {
+        return 'Category';
+      },
+    });
+  
+    category = answers.category_name;
+  
+    const spinner = createSpinner('Reading Inout...').start();
+    spinner.success({ text: `${task} is now saved in the category of ${category}!` });
+}
+
 // Run it with top-level await
 // console.clear();
 await welcome();
 await askName();
+await askCategory();
