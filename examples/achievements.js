@@ -23,18 +23,6 @@ async function welcome() {
   `);
 }
 
-async function handleAnswer(isCorrect) {
-  const spinner = createSpinner('Checking answer...').start();
-  await sleep();
-
-  if (isCorrect) {
-    spinner.success({ text: `Nice work ${playerName}. That's a legit answer` });
-  } else {
-    spinner.error({ text: `💀💀💀 Game over, you lose ${playerName}!` });
-    process.exit(1);
-  }
-}
-
 async function askName() {
   const answers = await inquirer.prompt({
     name: 'achievement_name',
@@ -52,6 +40,5 @@ async function askName() {
 }
 
 // Run it with top-level await
-// console.clear();
 await welcome();
 await askName();
