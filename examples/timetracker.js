@@ -68,7 +68,7 @@ async function startTimer() {
   const minutes = parseInt(duration.duration);
   const milliseconds = minutes * 60 * 1000;
 
-  console.log(chalk.yellow(`Sta rting ${minutes}-minute timer for ${task}...`));
+  console.log(chalk.yellow(`Starting ${minutes}-minute timer for ${task}...`));
 
   const spinner = createSpinner('Focusing...').start();
   await sleep(milliseconds);
